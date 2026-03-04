@@ -1,20 +1,21 @@
-const {Command} = require("commander");
+const { Command } = require("commander");
 
-class CliEngine{
+class CliEngine {
     program;
 
-    constructor(){
-    this.program = new Command();
-}
+    constructor() {
+        this.program = new Command();
+        this.program.version("1.0.0", "-V, --version");
+    }
 
-    registerCommands(commands){
-        commands.forEach((commandClass) => {
-            const commandInstance = new commandClass(this.program)
-            commandInstance.register()
-        })
-    }
+    registerCommands(commands) {
+        commands.forEach((commandClass) => {
+            const commandInstance = new commandClass(this.program)
+            commandInstance.register()
+        })
+    }
 
-    run(){
+    run() {
         this.program.parse()
     }
 }

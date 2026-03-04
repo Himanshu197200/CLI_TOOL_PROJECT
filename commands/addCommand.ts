@@ -1,19 +1,23 @@
 import chalk = require('chalk');
 
-class Add_Command{
+class Add_Command {
     program;
 
-    constructor(program){
-        this.program=program;
-    }
-    
-    register(){
-        this.program.command("add <num1> <num2>")
-        .description("Add two numbers")
-        .action((num1,num2)=>this.add(num1,num2))
+    constructor(program) {
+        this.program = program;
     }
 
-    add(num1,num2){
+    register() {
+        this.program.command("add <num1> <num2>")
+            .description("Add two numbers")
+            .action((num1, num2) => this.add(num1, num2))
+    }
+
+    add(num1, num2) {
+        if (isNaN(num1) || isNaN(num2)) {
+            console.log(chalk.red("Please enter valid numbers!"));
+            return;
+        }
         const result = Number(num1) + Number(num2);
         console.log(chalk.green.bold(`Result: ${result}`));
     }

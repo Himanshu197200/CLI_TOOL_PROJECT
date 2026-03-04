@@ -1,19 +1,23 @@
 import chalk = require('chalk');
 
-class Subtract_Command{
+class Subtract_Command {
     program;
 
-    constructor(program){
-        this.program=program;
-    }
-    
-    register(){
-        this.program.command("subtract <num1> <num2>")
-        .description("Subtract second number from first number")
-        .action((num1,num2)=>this.subtract(num1,num2))
+    constructor(program) {
+        this.program = program;
     }
 
-    subtract(num1,num2){
+    register() {
+        this.program.command("subtract <num1> <num2>")
+            .description("Subtract second number from first number")
+            .action((num1, num2) => this.subtract(num1, num2))
+    }
+
+    subtract(num1, num2) {
+        if (isNaN(num1) || isNaN(num2)) {
+            console.log(chalk.red("Please enter valid numbers!"));
+            return;
+        }
         const result = Number(num1) - Number(num2);
         console.log(chalk.green.bold(`Result: ${result}`));
     }

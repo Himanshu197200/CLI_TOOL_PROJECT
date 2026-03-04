@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const cli_engine = require('./cliEngine/engine');
+const cli_engine = require('./cli-engine/engine');
 const add_command = require('./commands/addCommand');
 const subtract_command = require('./commands/subtractCommand');
 const multiply_command = require('./commands/multiplyCommand');
@@ -10,7 +10,6 @@ const joke_command = require('./commands/jokeCommand');
 const pokemon_command = require('./commands/pokeCommand');
 const greet_command = require('./commands/greetCommand');
 const quote_command = require('./commands/quoteCommand');
-const weather_command = require('./commands/weatherCommand');
 const squareroot_command = require('./commands/squarerootCommand');
 const factorial_command = require('./commands/factorialCommand');
 const average_command = require('./commands/averageCommand');
@@ -36,6 +35,5 @@ engine.registerCommands([
     pokemon_command,
     greet_command,
     quote_command,
-    weather_command
 ]);
 engine.run();

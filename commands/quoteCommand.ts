@@ -20,9 +20,9 @@ class Quote_Command {
             const res = await axios.get("https://zenquotes.io/api/random")
             const data = res.data[0];
 
-            console.log(chalk.magenta("--- Random Quote ---"));
+            console.log(chalk.magenta("Random Quote"));
             console.log(chalk.cyan(`"${data.q}"`));
-            console.log(chalk.yellow(`- ${data.a}\n`));
+            console.log(chalk.yellow(`- ${data.a}`));
 
         } catch (err) {
             console.log(chalk.red("Error fetching quote. Please try again later."));

@@ -19,7 +19,7 @@ class Pokemon_Command {
             const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`)
             const data = res.data
 
-            console.log(chalk.green("--- Pokemon Details ---"))
+            console.log(chalk.green("Pokemon Details"))
             console.log(chalk.cyan("Name:"), data.name)
             console.log(chalk.cyan("ID:"), data.id)
             console.log(chalk.cyan("Height:"), data.height)

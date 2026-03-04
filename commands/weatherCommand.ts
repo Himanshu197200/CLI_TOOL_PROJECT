@@ -28,11 +28,11 @@ class Weather_Command {
             const weatherRes = await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m`);
             const current = weatherRes.data.current;
 
-            console.log(chalk.blue(`\n=== Weather in ${location.name}, ${location.country} ===`));
+            console.log(chalk.blue(`Weather in ${location.name}, ${location.country}`));
             console.log(chalk.green("Temperature:"), `${current.temperature_2m}°C`);
             console.log(chalk.cyan("Feels Like:"), `${current.apparent_temperature}°C`);
             console.log(chalk.magenta("Humidity:"), `${current.relative_humidity_2m}%`);
-            console.log(chalk.yellow("Wind Speed:"), `${current.wind_speed_10m} km/h\n`);
+            console.log(chalk.yellow("Wind Speed:"), `${current.wind_speed_10m} km/h`);
 
         } catch (err) {
             console.log(chalk.red("Error fetching weather. Please try again."));

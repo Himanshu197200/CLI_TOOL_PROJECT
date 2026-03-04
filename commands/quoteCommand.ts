@@ -17,7 +17,6 @@ class Quote_Command {
 
     async getQuote() {
         try {
-            // Using ZenQuotes API for real quotes
             const res = await axios.get("https://zenquotes.io/api/random")
             const data = res.data[0];
 

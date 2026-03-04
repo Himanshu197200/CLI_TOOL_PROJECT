@@ -1,57 +1,19 @@
-# CLI Tool Project - Command Line Utility
+# My CLI Tool - Command Line Utility
 
-A fully functional Object-Oriented Command Line Interface (CLI) built with Node.js and TypeScript.
+A TypeScript-based CLI tool built with Object-Oriented Programming principles. Provides mathematical operations and API integrations.
 
-## Folder Structure
-
-```
-CLI_TOOL_PROJECT/
-├── cli.ts                    # Main entry point
-├── init.ts                   # Initialization file
-├── cli-engine/
-│   └── engine.ts             # CLI Engine (registers and runs commands)
-├── commands/
-│   ├── addCommand.ts
-│   ├── subtractCommand.ts
-│   ├── multiplyCommand.ts
-│   ├── divideCommand.ts
-│   ├── moduloCommand.ts
-│   ├── powerCommand.ts
-│   ├── squarerootCommand.ts
-│   ├── factorialCommand.ts
-│   ├── averageCommand.ts
-│   ├── maxCommand.ts
-│   ├── minCommand.ts
-│   ├── greetCommand.ts
-│   ├── githubCommand.ts
-│   ├── jokeCommand.ts
-│   ├── pokeCommand.ts
-│   ├── quoteCommand.ts
-│   └── weatherCommand.ts
-├── dist/                     # Compiled JavaScript output
-├── package.json
-├── tsconfig.json
-└── .gitignore
-```
-
-## Setup Instructions
-
-**Install Dependencies:** Make sure you have Node.js installed. Then, run:
+## Installation
 
 ```bash
 npm install
-```
-
-**Compile the TypeScript Code:** The CLI runs from the compiled source in the `dist` directory. To compile:
-
-```bash
 npx tsc
+npm link
 ```
 
-**Use the CLI:** You can run the compiled code using `node dist/cli.js <command>`, or optionally link it globally (if configured):
+## Usage
 
 ```bash
-node dist/cli.js --help
+node dist/cli.js <command> [arguments]
 ```
 
 ## Available Commands
@@ -70,37 +32,154 @@ node dist/cli.js --help
 - `max <numbers...>`: Find maximum from multiple numbers
 - `min <numbers...>`: Find minimum from multiple numbers
 
-### Utilities & API Integrations
+### API Integrations
 
-- `greet <name>`: Greet someone
-- `github [options] <username>`: Get GitHub user information. (Option: `-r`, `--repos` to show user repositories)
+- `github <username>`: Get GitHub user information
 - `joke`: Get a random joke
 - `pokemon <name>`: Get Pokemon information
 - `quote`: Get a random inspirational quote
 - `weather <city>`: Get the current weather for a city
 
-## Example Usage
+### Utility
 
-**Math Commands:**
+- `greet <name>`: Greet someone
+
+## Commands in Detail
+
+### Mathematical Operations
+
+**Basic Arithmetic**
 
 ```bash
-node dist/cli.js add 10 5
-node dist/cli.js subtract 20 8
-node dist/cli.js average 10 20 30
+node dist/cli.js add 5 3
+node dist/cli.js subtract 10 4
+node dist/cli.js multiply 6 7
+node dist/cli.js divide 20 4
+node dist/cli.js modulo 17 5
+```
+
+**Advanced Math**
+
+```bash
+node dist/cli.js power 2 8
+node dist/cli.js sqrt 144
 node dist/cli.js factorial 5
 ```
 
-**API Commands:**
+**Statistics**
 
 ```bash
-node dist/cli.js pokemon bulbasaur
-node dist/cli.js joke
+node dist/cli.js average 10 20 30 40
+node dist/cli.js max 5 12 8 20 3
+node dist/cli.js min 5 12 8 20 3
+```
+
+### API Integrations
+
+**GitHub User Info**
+
+```bash
 node dist/cli.js github Himanshu197200
+```
+
+**Random Jokes**
+
+```bash
+node dist/cli.js joke
+```
+
+**Pokemon Information**
+
+```bash
+node dist/cli.js pokemon pikachu
+```
+
+**Random Quote**
+
+```bash
 node dist/cli.js quote
+```
+
+**Weather**
+
+```bash
 node dist/cli.js weather Mumbai
 ```
 
-**General:**
+### Utility
+
+**Greet**
+
+```bash
+node dist/cli.js greet Himanshu
+```
+
+**Help**
+
+```bash
+node dist/cli.js --help
+```
+
+## Project Structure
+
+```
+CLI_TOOL_PROJECT/
+├── cli.ts
+├── init.ts
+├── cli-engine/
+│   └── engine.ts
+├── commands/
+│   ├── addCommand.ts
+│   ├── subtractCommand.ts
+│   ├── multiplyCommand.ts
+│   ├── divideCommand.ts
+│   ├── moduloCommand.ts
+│   ├── powerCommand.ts
+│   ├── squarerootCommand.ts
+│   ├── factorialCommand.ts
+│   ├── averageCommand.ts
+│   ├── maxCommand.ts
+│   ├── minCommand.ts
+│   ├── greetCommand.ts
+│   ├── githubCommand.ts
+│   ├── jokeCommand.ts
+│   ├── pokeCommand.ts
+│   ├── quoteCommand.ts
+│   └── weatherCommand.ts
+├── dist/
+├── package.json
+├── tsconfig.json
+└── .gitignore
+```
+
+## Architecture
+
+Each command is a class with three key components:
+
+- `constructor(program)` - Initializes with Commander instance
+- `register()` - Registers command with CLI engine
+- `action methods` - Implements command logic
+
+The CLI Engine manages command registration and execution using OOP principles.
+
+## Technologies
+
+- **TypeScript** - Language
+- **Commander.js** - CLI framework
+- **Axios** - HTTP requests
+- **Chalk** - Colored terminal output
+
+## Development
+
+```bash
+npm install
+npx tsc
+npm link
+```
+
+## General
+
+For getting help and to see all the available commands, run:
 
 ```bash
 node dist/cli.js --help

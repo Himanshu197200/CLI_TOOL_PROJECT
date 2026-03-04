@@ -6,19 +6,20 @@ const multiply_command = require('./commands/multiplyCommand');
 const divide_command = require('./commands/divideCommand');
 const modulo_command = require('./commands/moduloCommand');
 const power_command = require('./commands/powerCommand');
+const joke_command = require('./commands/jokeCommand');
+const pokemon_command = require('./commands/pokeCommand');
+const greet_command = require('./commands/greetCommand');
+const quote_command = require('./commands/quoteCommand');
+const weather_command = require('./commands/weatherCommand');
 const squareroot_command = require('./commands/squarerootCommand');
 const factorial_command = require('./commands/factorialCommand');
 const average_command = require('./commands/averageCommand');
 const max_command = require('./commands/maxCommand');
 const min_command = require('./commands/minCommand');
 const github_command = require('./commands/githubCommand');
-const joke_command = require('./commands/jokeCommand');
-const pokemon_command = require('./commands/pokeCommand');
-const greet_command = require('./commands/greetCommand');
 
 const engine = new cli_engine();
 engine.registerCommands([
-    greet_command,
     add_command,
     subtract_command,
     multiply_command,
@@ -32,6 +33,9 @@ engine.registerCommands([
     min_command,
     github_command,
     joke_command,
-    pokemon_command
+    pokemon_command,
+    greet_command,
+    quote_command,
+    weather_command
 ]);
 engine.run();
